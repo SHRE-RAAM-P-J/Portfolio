@@ -149,3 +149,72 @@ textarea {
 .particles-root {
   pointer-events: none;
 }
+
+/* ── Hero section responsive layout ── */
+
+/* Inner two-column grid: single column on mobile, side-by-side on desktop */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;      /* single column on mobile */
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr 1fr; /* side-by-side on tablet/desktop */
+  }
+}
+
+/* Hero text column: full width on mobile */
+.hero-text {
+  width: 100%;
+  max-width: 560px;
+}
+
+@media (min-width: 768px) {
+  .hero-text {
+    max-width: 560px;
+  }
+}
+
+/* Hero 3D canvas card */
+.hero-scene-card {
+  width: 100%;
+  height: clamp(240px, 50vw, 420px);  /* shorter on small screens */
+  position: relative;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--hero-card-bg);
+  box-shadow: var(--hero-card-shadow);
+}
+
+@media (min-width: 768px) {
+  .hero-scene-card {
+    height: min(420px, 55vh);
+    min-height: 280px;
+  }
+}
+
+/* CTA button row: wrap on mobile, no overflow */
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Buttons inside CTA row fill width on very narrow screens */
+@media (max-width: 480px) {
+  .hero-cta-row a,
+  .hero-cta-row button {
+    width: 100%;
+    justify-content: center;
+  }
+}

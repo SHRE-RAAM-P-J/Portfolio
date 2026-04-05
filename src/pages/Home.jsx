@@ -47,20 +47,8 @@ export default function Home() {
             zIndex: 0,
           }}
         />
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            alignItems: 'center',
-            gap: '2.5rem',
-            maxWidth: 1200,
-            margin: '0 auto',
-            width: '100%',
-            position: 'relative',
-            zIndex: 1,
-          }}
-        >
-          <motion.div variants={staggerContainer} initial="hidden" animate="show" style={{ maxWidth: 560 }}>
+        <div className="hero-inner">
+          <motion.div variants={staggerContainer} initial="hidden" animate="show" className="hero-text">
             <motion.p
               variants={fadeUpItem}
               style={{
@@ -98,7 +86,7 @@ export default function Home() {
             >
               Building real world projects — JavaScript, React, Python, and systems that solve practical problems.
             </motion.p>
-            <motion.div variants={fadeUpItem} style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+            <motion.div variants={fadeUpItem} className="hero-cta-row">
               <MotionLink
                 to="/projects"
                 onClick={() => playClick()}
@@ -160,16 +148,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-              height: 'min(420px, 55vh)',
-              minHeight: 280,
-              position: 'relative',
-              borderRadius: 'var(--radius)',
-              border: '1px solid var(--border)',
-              overflow: 'hidden',
-              background: 'var(--hero-card-bg)',
-              boxShadow: 'var(--hero-card-shadow)',
-            }}
+            className="hero-scene-card"
           >
             <Suspense fallback={<SceneFallback />}>
               <HeroScene />
