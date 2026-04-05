@@ -6,7 +6,7 @@ A modern, highly interactive personal portfolio built using React, Framer Motion
 
 ## Live Demo
 
-portfolio-git-main-shre-raam-p-js-projects.vercel.app
+https://portfolio-git-main-shre-raam-p-js-projects.vercel.app
 
 ---
 
