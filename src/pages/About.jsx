@@ -13,7 +13,7 @@ export default function About() {
     <div style={{ padding: '3rem 0 4rem' }}>
       <SectionHeading
         title="About"
-        subtitle="Computer Science Engineering student focused on impactful software and continuous learning."
+        subtitle="Computer Science Engineering student focused on continuous learning."
       />
 
       <motion.section
@@ -30,10 +30,10 @@ export default function About() {
         }}
       >
         <p style={{ color: 'var(--text-muted)', lineHeight: 1.75, margin: 0, fontSize: '1.05rem' }}>
-          I am a Computer Science Engineering student passionate about building real-world impactful projects. I focus on
-          learning by doing, creating applications that solve practical problems. I am currently improving my skills in
-          JavaScript, React, and Data Structures while aiming to become a strong software engineer and achieve a 20+ LPA
-          role.
+          I’m a Computer Science Engineering student focused on building real-world, impactful software. I learn by creating — turning ideas into working products that solve practical problems.
+          I’ve worked on projects ranging from AI-based crowd analysis systems using ESP32-CAM and YOLO to custom tools like file management systems and encoding engines.
+          Currently, I’m strengthening my skills in JavaScript, React, and Data Structures while aiming to become a product-focused software engineer.
+          I’m particularly interested in building scalable products and exploring ideas that have real-world value.
         </p>
       </motion.section>
 

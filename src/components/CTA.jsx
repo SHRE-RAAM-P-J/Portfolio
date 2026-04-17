@@ -48,7 +48,7 @@ export default function CTA() {
         Let&apos;s build something real
       </h2>
       <p style={{ color: 'var(--text-muted)', maxWidth: 520, margin: '0 auto 1.5rem', position: 'relative' }}>
-        Open to internships, full-time roles, and collaborations. Reach out with your stack, goals, and timeline.
+        Open to internships, Part-time roles, and collaborations. Reach out with your stack, goals, and timeline.
       </p>
       <div
         style={{

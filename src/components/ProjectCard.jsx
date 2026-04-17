@@ -61,6 +61,8 @@ function ProjectCardComponent({ project }) {
           padding: '1.5rem',
           boxShadow: shadow,
           height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
         }}
         whileHover={{ scale: 1.02, z: 20 }}
         transition={{ type: 'spring', stiffness: 320, damping: 22 }}
@@ -78,60 +80,62 @@ function ProjectCardComponent({ project }) {
         <h3 style={{ margin: '0 0 0.5rem', fontFamily: 'var(--font-display)', fontSize: '1.35rem' }}>
           {project.title}
         </h3>
-        <p style={{ color: 'var(--text-muted)', margin: '0 0 1rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
+        <p style={{ color: 'var(--text-muted)', margin: '0 0 1rem', lineHeight: 1.6, fontSize: '0.95rem', flex: 1 }}>
           {project.description}
         </p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: '1.25rem' }}>
-          {project.stack.map((t) => (
-            <span
-              key={t}
-              style={{
-                fontSize: '0.75rem',
-                padding: '4px 10px',
-                borderRadius: 999,
-                border: '1px solid var(--border)',
-                background: 'var(--surface)',
-              }}
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-          {project.github ? (
-            <motion.a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              onPointerDown={() => playClick()}
-              style={{
-                fontWeight: 600,
-                fontSize: '0.9rem',
-                color: 'var(--accent)',
-              }}
-            >
-              GitHub
-            </motion.a>
-          ) : null}
-          {project.live && (
-            <motion.a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              onPointerDown={() => playClick()}
-              style={{
-                fontWeight: 600,
-                fontSize: '0.9rem',
-                color: 'var(--accent-2)',
-              }}
-            >
-              Live demo
-            </motion.a>
-          )}
+        <div style={{ marginTop: 'auto' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: '0.75rem' }}>
+            {project.stack.map((t) => (
+              <span
+                key={t}
+                style={{
+                  fontSize: '0.75rem',
+                  padding: '4px 10px',
+                  borderRadius: 999,
+                  border: '1px solid var(--border)',
+                  background: 'var(--surface)',
+                }}
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+            {project.github ? (
+              <motion.a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                onPointerDown={() => playClick()}
+                style={{
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  color: 'var(--accent)',
+                }}
+              >
+                GitHub
+              </motion.a>
+            ) : null}
+            {project.live && (
+              <motion.a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                onPointerDown={() => playClick()}
+                style={{
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  color: 'var(--accent-2)',
+                }}
+              >
+                Live demo
+              </motion.a>
+            )}
+          </div>
         </div>
       </motion.div>
     </motion.article>
