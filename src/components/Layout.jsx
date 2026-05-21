@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Outlet, useLocation } from 'react-router-dom';
+import AnalyticsProvider from './AnalyticsProvider';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
@@ -13,28 +14,15 @@ export default function Layout() {
   const reduce = useReducedMotion();
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative',
-        zIndex: 1,
-      }}
-    >
+    <div className="layout-root">
+      <AnalyticsProvider />
       <Navbar />
       <motion.main
         key={location.pathname}
-        initial={reduce ? false : { opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduce ? 0 : 0.22, ease: enterEase }}
-        style={{
-          flex: 1,
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          minHeight: 0,
-        }}
+        className="layout-main"
+        initial={reduce ? false : { opacity: 0, y: 12, filter: 'blur(4px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: reduce ? 0 : 0.32, ease: enterEase }}
       >
         <Outlet />
       </motion.main>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { playClick } from '../hooks/useSubtleSound';
+import { trackCtaClick } from '../utils/analytics';
 
 const MotionLink = motion(Link);
 
@@ -60,41 +61,27 @@ export default function CTA() {
       >
         <MotionLink
           to="/contact"
-          onClick={() => playClick()}
+          onClick={() => {
+            playClick();
+            trackCtaClick('/contact');
+          }}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '14px 28px',
-            borderRadius: 999,
-            fontWeight: 600,
-            background: 'linear-gradient(135deg, var(--accent), var(--accent-2))',
-            color: 'var(--on-accent)',
-            border: 'none',
-            textDecoration: 'none',
-          }}
+          className="btn-primary"
+          style={{ textDecoration: 'none' }}
         >
           Contact me
         </MotionLink>
         <MotionLink
           to="/projects"
-          onClick={() => playClick()}
+          onClick={() => {
+            playClick();
+            trackCtaClick('/projects');
+          }}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '14px 28px',
-            borderRadius: 999,
-            fontWeight: 600,
-            background: 'var(--surface)',
-            color: 'var(--text)',
-            border: '1px solid var(--border)',
-            textDecoration: 'none',
-          }}
+          className="btn-secondary"
+          style={{ textDecoration: 'none' }}
         >
           View projects
         </MotionLink>

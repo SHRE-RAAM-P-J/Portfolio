@@ -1,5 +1,6 @@
 import emailjs from '@emailjs/browser';
 import { useCallback, useState } from 'react';
+import { trackContactSubmit } from '../utils/analytics';
 
 function envTrim(key) {
   const v = import.meta.env[key];
@@ -53,6 +54,7 @@ export function useContactForm() {
         { publicKey }
       );
       setStatus({ type: 'ok', text: 'Message sent — I’ll get back to you soon.' });
+      trackContactSubmit();
       setValues(initial);
     } catch (err) {
       console.error(err);

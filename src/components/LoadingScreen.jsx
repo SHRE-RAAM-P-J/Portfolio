@@ -1,65 +1,51 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 export default function LoadingScreen() {
+  const reduce = useReducedMotion();
+
   return (
     <motion.div
       key="loading-root"
       className="loading-screen-root"
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }}
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 100000,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: 'var(--bg-deep)',
-        backgroundImage:
-          'radial-gradient(ellipse 80% 60% at 50% -20%, rgba(129, 140, 248, 0.25), transparent)',
-      }}
+      exit={{ opacity: 0, transition: { duration: reduce ? 0.2 : 0.55, ease: [0.22, 1, 0.36, 1] } }}
     >
-      <div style={{ textAlign: 'center' }}>
+      <div className="loading-screen-inner">
         <motion.div
-          style={{
-            width: 56,
-            height: 56,
-            margin: '0 auto 1rem',
-            borderRadius: 14,
-            background: 'linear-gradient(135deg, var(--accent), var(--accent-2))',
-          }}
-          animate={{ rotate: [0, 180, 360] }}
-          transition={{ duration: 2.2, repeat: Infinity, ease: 'linear' }}
-        />
-        <p
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontWeight: 700,
-            fontSize: '1.25rem',
-            letterSpacing: '-0.02em',
-          }}
+          className="loading-logo-mark"
+          initial={reduce ? false : { opacity: 0, scale: 0.88 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
         >
-          Loading experience
-        </p>
-        <motion.div
-          style={{
-            marginTop: 12,
-            height: 3,
-            width: 120,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            borderRadius: 2,
-            background: 'var(--border)',
-            overflow: 'hidden',
-          }}
-        >
-          <motion.div
-            style={{ height: '100%', background: 'var(--accent)' }}
-            initial={{ width: '0%' }}
-            animate={{ width: '100%' }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          />
+          <span className="loading-logo-glow" aria-hidden />
+          <span className="loading-logo-letter">S</span>
         </motion.div>
+
+        <motion.p
+          className="loading-title"
+          initial={reduce ? false : { opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.12, duration: 0.4 }}
+        >
+          Shre Raam
+        </motion.p>
+        <motion.p
+          className="loading-sub"
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.22, duration: 0.4 }}
+        >
+          Engineering portfolio
+        </motion.p>
+
+        <div className="loading-bar-track">
+          <motion.div
+            className="loading-bar-fill"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: reduce ? 0.3 : 0.95, ease: [0.22, 1, 0.36, 1] }}
+          />
+        </div>
       </div>
     </motion.div>
   );

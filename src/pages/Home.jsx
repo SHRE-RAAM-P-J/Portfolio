@@ -2,16 +2,22 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { fadeUpItem, staggerContainer } from '../animations/variants';
 import CTA from '../components/CTA';
+import { useParallax } from '../hooks/useParallax';
 import { playClick } from '../hooks/useSubtleSound';
 import HeroVideo from '../components/HeroVideo';
 import RotatingTitles from '../components/RotatingTitles';
+import { trackResumeDownload } from '../utils/analytics';
 
 const MotionLink = motion(Link);
 
 export default function Home() {
+  const orb1Ref = useParallax(18);
+  const orb2Ref = useParallax(14);
+
   return (
     <>
       <section
+        className="hero-section"
         style={{
           minHeight: '85vh',
           display: 'grid',
@@ -24,8 +30,8 @@ export default function Home() {
         }}
       >
         {/* Animated background floating orbs */}
-        <div className="hero-glow-orb-1" aria-hidden="true" />
-        <div className="hero-glow-orb-2" aria-hidden="true" />
+        <div ref={orb1Ref} className="hero-glow-orb-1" aria-hidden="true" />
+        <div ref={orb2Ref} className="hero-glow-orb-2" aria-hidden="true" />
 
         <div
           aria-hidden
@@ -145,7 +151,9 @@ export default function Home() {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                   onPointerDown={() => playClick()}
+                  onClick={() => trackResumeDownload()}
                   className="btn-dashed"
+                  data-magnetic
                 >
                   Resume (PDF)
                 </motion.a>

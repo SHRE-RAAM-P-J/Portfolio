@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { springSnappy } from '../animations/transitions';
 import { useTheme } from '../context/ThemeContext';
 import { playClick } from '../hooks/useSubtleSound';
+import { trackResumeDownload } from '../utils/analytics';
 import { NAV_LINKS } from '../utils/nav';
 
 export default function Navbar() {
@@ -129,16 +130,9 @@ export default function Navbar() {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.96 }}
             onPointerDown={() => playClick()}
-            style={{
-              display: 'none',
-              padding: '10px 16px',
-              borderRadius: 999,
-              fontWeight: 600,
-              fontSize: '0.9rem',
-              background: 'linear-gradient(135deg, var(--accent), var(--accent-2))',
-              color: 'var(--on-accent)',
-            }}
-            className="nav-resume-btn"
+            onClick={() => trackResumeDownload()}
+            className="nav-resume-btn btn-primary"
+            style={{ display: 'none', textDecoration: 'none', fontSize: '0.9rem' }}
           >
             Resume
           </motion.a>
@@ -175,8 +169,29 @@ export default function Navbar() {
         @media (max-width: 899px) {
           .nav-burger { display: grid !important; place-items: center; }
         }
+        .nav-link-pad span {
+          position: relative;
+          display: inline-block;
+        }
         .nav-link-pad:hover span {
           color: var(--text);
+        }
+        .nav-link-pad span::after {
+          content: '';
+          position: absolute;
+          left: 12px;
+          right: 12px;
+          bottom: 4px;
+          height: 2px;
+          border-radius: 2px;
+          background: linear-gradient(90deg, var(--accent), var(--accent-2));
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .nav-link-pad:hover span::after,
+        .nav-link-pad:focus-visible span::after {
+          transform: scaleX(1);
         }
       `}</style>
 
@@ -226,15 +241,10 @@ export default function Navbar() {
                 download
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                style={{
-                  marginTop: 8,
-                  padding: '12px 14px',
-                  borderRadius: 12,
-                  fontWeight: 600,
-                  background: 'linear-gradient(135deg, var(--accent), var(--accent-2))',
-                  color: 'var(--on-accent)',
-                  textAlign: 'center',
-                }}
+                onPointerDown={() => playClick()}
+                onClick={() => trackResumeDownload()}
+                className="btn-primary"
+                style={{ marginTop: 8, textAlign: 'center', textDecoration: 'none' }}
               >
                 Download resume
               </motion.a>

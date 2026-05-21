@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { memo, useRef } from 'react';
 import { playClick } from '../../hooks/useSubtleSound';
+import { trackProjectClick } from '../../utils/analytics';
 
 function ProjectCardComponent({ project, index = 0 }) {
   const reduce = useReducedMotion();
@@ -59,23 +60,25 @@ function ProjectCardComponent({ project, index = 0 }) {
                 className="project-card-action project-card-action--primary"
                 whileHover={reduce ? undefined : { y: -2 }}
                 whileTap={reduce ? undefined : { scale: 0.97 }}
-                onPointerDown={() => playClick()}
-              >
-                GitHub
-              </motion.a>
-            ) : null}
-            {project.live ? (
-              <motion.a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-card-action"
-                whileHover={reduce ? undefined : { y: -2 }}
-                whileTap={reduce ? undefined : { scale: 0.97 }}
-                onPointerDown={() => playClick()}
-              >
-                Live demo
-              </motion.a>
+                    onPointerDown={() => playClick()}
+                    onClick={() => trackProjectClick(project.id, 'github')}
+                  >
+                    GitHub
+                  </motion.a>
+                ) : null}
+                {project.live ? (
+                  <motion.a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-card-action"
+                    whileHover={reduce ? undefined : { y: -2 }}
+                    whileTap={reduce ? undefined : { scale: 0.97 }}
+                    onPointerDown={() => playClick()}
+                    onClick={() => trackProjectClick(project.id, 'live')}
+                  >
+                    Live demo
+                  </motion.a>
             ) : null}
           </div>
         </div>
@@ -104,12 +107,28 @@ function ProjectCardComponent({ project, index = 0 }) {
 
         <div className="project-card-links">
           {project.github ? (
-            <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={() => playClick()}>
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                playClick();
+                trackProjectClick(project.id, 'github');
+              }}
+            >
               GitHub
             </a>
           ) : null}
           {project.live ? (
-            <a href={project.live} target="_blank" rel="noopener noreferrer" onClick={() => playClick()}>
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                playClick();
+                trackProjectClick(project.id, 'live');
+              }}
+            >
               Live demo
             </a>
           ) : null}

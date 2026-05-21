@@ -1,6 +1,7 @@
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
 import CTA from '../components/CTA';
+import { trackExternalLink } from '../utils/analytics';
 import SectionHeading from '../components/ui/SectionHeading';
 
 const internships = [
@@ -67,6 +68,7 @@ function TimelineStep({ internship, index, reduce }) {
 
   return (
     <div ref={stepRef} className="experience-step">
+      {index > 0 ? <span className="experience-step-bridge" aria-hidden="true" /> : null}
       <div className={`experience-node-wrap${visible ? ' is-active' : ''}`}>
         <span className="experience-node-aura experience-node-aura--far" aria-hidden="true" />
         <span className="experience-node-aura experience-node-aura--mid" aria-hidden="true" />
@@ -140,6 +142,7 @@ function TimelineStep({ internship, index, reduce }) {
               whileHover={reduce ? undefined : { y: -2 }}
               whileTap={reduce ? undefined : { scale: 0.98 }}
               className="experience-link-btn"
+              onClick={() => trackExternalLink(link.href, link.label)}
             >
               {link.label}
             </motion.a>
@@ -152,8 +155,6 @@ function TimelineStep({ internship, index, reduce }) {
 
 export default function Experience() {
   const reduce = useReducedMotion();
-  const timelineRef = useRef(null);
-  const timelineInView = useInView(timelineRef, { once: true, amount: 0.08 });
 
   return (
     <div className="experience-page">
@@ -163,18 +164,7 @@ export default function Experience() {
       />
 
       <section className="experience-timeline" aria-label="Internship timeline">
-        <div ref={timelineRef} className="experience-timeline-inner">
-          <motion.div
-            className="experience-line"
-            aria-hidden="true"
-            initial={false}
-            animate={
-              reduce || timelineInView ? { scaleY: 1, opacity: 1 } : { scaleY: 0.15, opacity: 0.5 }
-            }
-            transition={{ duration: reduce ? 0 : 0.9, ease: [0.22, 1, 0.36, 1] }}
-            style={{ transformOrigin: 'top center' }}
-          />
-
+        <div className="experience-timeline-inner">
           {internships.map((internship, index) => (
             <TimelineStep key={internship.company} internship={internship} index={index} reduce={reduce} />
           ))}
