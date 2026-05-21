@@ -72,10 +72,10 @@ function Orbit({ labelColor, outlineColor, torusColor, torusEmissive }) {
 export default function SkillsOrbit() {
   const { theme } = useTheme();
   const light = theme === 'light';
-  const labelColor = light ? '#4338ca' : '#c4b5fd';
-  const outlineColor = light ? '#ffffff' : '#000000';
-  const torusColor = light ? '#6366f1' : '#6366f1';
-  const torusEmissive = light ? '#c7d2fe' : '#312e81';
+  const labelColor = light ? '#ea580c' : '#c4b5fd';
+  const outlineColor = light ? '#fffbf5' : '#000000';
+  const torusColor = light ? '#ea580c' : '#6366f1';
+  const torusEmissive = light ? '#ffedd5' : '#312e81';
 
   return (
     <Canvas

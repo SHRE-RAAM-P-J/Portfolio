@@ -5,7 +5,7 @@ import SectionHeading from '../components/ui/SectionHeading';
 const categories = [
   {
     name: 'Languages & Foundations',
-    color: '#818cf8',
+    color: 'var(--accent)',
     proofOfWork: 'Applied in building projects like AlphaMap and solving DSA problems.',
     skills: [
       { label: 'JavaScript', level: 'Intermediate' },
@@ -16,7 +16,7 @@ const categories = [
   },
   {
     name: 'Web & Apps',
-    color: '#34d399',
+    color: 'var(--accent-2)',
     proofOfWork: 'Used to build responsive portfolio websites and interactive UIs.',
     skills: [
       { label: 'React', level: 'Beginner' },
@@ -75,6 +75,7 @@ export default function Skills() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="skills-category-card"
             style={{
               padding: '1.5rem',
               borderRadius: 'var(--radius)',

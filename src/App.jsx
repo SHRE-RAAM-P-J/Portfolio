@@ -7,6 +7,8 @@ import LoadingScreen from './components/LoadingScreen';
 import ScrollProgress from './components/ScrollProgress';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Experience from './pages/Experience';
+import Blogs from './pages/Blogs';
 import Home from './pages/Home';
 import Profiles from './pages/Profiles';
 import Projects from './pages/Projects';
@@ -33,8 +35,10 @@ export default function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
+            <Route path="experience" element={<Experience />} />
             <Route path="projects" element={<Projects />} />
             <Route path="skills" element={<Skills />} />
+            <Route path="blogs" element={<Blogs />} />
             <Route path="profiles" element={<Profiles />} />
             <Route path="contact" element={<Contact />} />
           </Route>

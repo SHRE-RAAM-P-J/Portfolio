@@ -9,8 +9,12 @@ export function ThemeProvider({ children }) {
   });
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    const root = document.documentElement;
+    root.classList.add('theme-transitioning');
+    root.setAttribute('data-theme', theme);
     localStorage.setItem('portfolio-theme', theme);
+    const t = window.setTimeout(() => root.classList.remove('theme-transitioning'), 480);
+    return () => window.clearTimeout(t);
   }, [theme]);
 
   const value = useMemo(

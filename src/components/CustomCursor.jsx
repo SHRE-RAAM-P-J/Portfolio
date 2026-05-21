@@ -71,7 +71,7 @@ export default function CustomCursor() {
           zIndex: 99998,
           opacity: visible ? 1 : 0,
           mixBlendMode: isDark ? 'screen' : 'normal',
-          boxShadow: isDark ? 'none' : '0 0 0 1px rgba(255,255,255,0.5) inset, 0 2px 8px rgba(67, 56, 202, 0.25)',
+          boxShadow: isDark ? 'none' : '0 0 0 1px rgba(255,255,255,0.6) inset, 0 2px 10px rgba(234, 88, 12, 0.35)',
         }}
       />
       <motion.div

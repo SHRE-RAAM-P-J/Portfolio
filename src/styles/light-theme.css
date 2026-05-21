@@ -1,0 +1,243 @@
+/**
+ * Light mode component overrides — premium warm orange + black.
+ * Dark mode uses default styles; only [data-theme='light'] rules here.
+ */
+
+[data-theme='light'] .hero-name-glow {
+  background: linear-gradient(135deg, #0c0a09 15%, #ea580c 55%, #d97706 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: nameGlowLight 6s ease-in-out infinite;
+}
+
+@keyframes nameGlowLight {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 8px rgba(234, 88, 12, 0.15));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(234, 88, 12, 0.35));
+  }
+}
+
+[data-theme='light'] .hero-glow-orb-1 {
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.28) 0%, rgba(251, 146, 60, 0.06) 60%, transparent 80%);
+}
+
+[data-theme='light'] .hero-glow-orb-2 {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(245, 158, 11, 0.05) 60%, transparent 80%);
+}
+
+[data-theme='light'] .btn-primary {
+  box-shadow: 0 4px 18px rgba(234, 88, 12, 0.32);
+}
+
+[data-theme='light'] .btn-primary:hover {
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.42);
+}
+
+[data-theme='light'] .btn-secondary {
+  background: var(--card-surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+[data-theme='light'] .btn-secondary:hover {
+  border-color: rgba(234, 88, 12, 0.45);
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.12);
+  color: var(--text);
+}
+
+[data-theme='light'] .btn-dashed:hover {
+  background: rgba(234, 88, 12, 0.06);
+}
+
+[data-theme='light'] .cta-band {
+  background: var(--cta-bg), var(--glass) !important;
+  border-color: rgba(234, 88, 12, 0.25) !important;
+}
+
+[data-theme='light'] .about-story-card,
+[data-theme='light'] .about-strength-card,
+[data-theme='light'] .journey-stage-card {
+  background: linear-gradient(145deg, #fffbf5, #fff7ed);
+  border-color: rgba(234, 88, 12, 0.2);
+  box-shadow: 0 16px 40px -24px rgba(120, 53, 15, 0.12);
+}
+
+[data-theme='light'] .about-strength-dot {
+  background: linear-gradient(135deg, #ea580c, #f59e0b);
+  box-shadow: 0 0 12px rgba(234, 88, 12, 0.5);
+}
+
+[data-theme='light'] .journey-line {
+  background: linear-gradient(to bottom, rgba(234, 88, 12, 0.75), rgba(217, 119, 6, 0.45), rgba(245, 158, 11, 0.1));
+  box-shadow: 0 0 14px rgba(234, 88, 12, 0.25);
+}
+
+[data-theme='light'] .journey-stage-card::before {
+  background: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.2), 0 0 12px rgba(234, 88, 12, 0.45);
+}
+
+[data-theme='light'] .journey-stage-index {
+  color: #0c0a09;
+  background: rgba(251, 146, 60, 0.35);
+  border-color: rgba(234, 88, 12, 0.35);
+}
+
+[data-theme='light'] .experience-node {
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.5), transparent 52%),
+    linear-gradient(145deg, rgba(251, 146, 60, 0.55), rgba(234, 88, 12, 0.75));
+  border-color: rgba(234, 88, 12, 0.45);
+}
+
+[data-theme='light'] .experience-node-number {
+  color: #0c0a09;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+[data-theme='light'] .experience-node-pulse {
+  border-color: rgba(234, 88, 12, 0.4);
+}
+
+[data-theme='light'] .experience-card-pro {
+  background:
+    radial-gradient(circle at 86% 10%, rgba(251, 146, 60, 0.12), transparent 48%),
+    linear-gradient(145deg, #fffbf5, #fff7ed);
+  border-color: rgba(234, 88, 12, 0.22);
+  box-shadow: 0 16px 40px -24px rgba(120, 53, 15, 0.14);
+}
+
+[data-theme='light'] .experience-card-pro:hover {
+  border-color: rgba(234, 88, 12, 0.38);
+  box-shadow: 0 22px 48px -22px rgba(234, 88, 12, 0.2);
+}
+
+[data-theme='light'] .achievement-chip {
+  background: var(--chip-bg);
+  border-color: var(--chip-border);
+  color: var(--chip-text);
+}
+
+[data-theme='light'] .experience-tech-badge {
+  background: var(--chip-bg);
+  border-color: var(--chip-border);
+  color: var(--chip-text);
+}
+
+[data-theme='light'] .experience-link-btn {
+  color: #0c0a09;
+  background: rgba(251, 146, 60, 0.35);
+  border-color: rgba(234, 88, 12, 0.35);
+}
+
+[data-theme='light'] .experience-link-btn:hover {
+  background: rgba(251, 146, 60, 0.5);
+  border-color: rgba(234, 88, 12, 0.5);
+}
+
+[data-theme='light'] .featured-project {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(251, 146, 60, 0.18), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 95% 80%, rgba(245, 158, 11, 0.12), transparent 50%),
+    linear-gradient(155deg, #fffbf5, #fff7ed);
+  border-color: rgba(234, 88, 12, 0.28);
+  box-shadow: 0 28px 60px -28px rgba(120, 53, 15, 0.18);
+}
+
+[data-theme='light'] .featured-project-mesh {
+  background-image:
+    linear-gradient(rgba(234, 88, 12, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(234, 88, 12, 0.05) 1px, transparent 1px);
+}
+
+[data-theme='light'] .featured-project-badge {
+  color: #0c0a09;
+  background: rgba(251, 146, 60, 0.4);
+  border-color: rgba(234, 88, 12, 0.35);
+}
+
+[data-theme='light'] .featured-project-tagline {
+  color: #292524;
+}
+
+[data-theme='light'] .featured-project-capabilities li {
+  color: #292524;
+  border-color: rgba(234, 88, 12, 0.25);
+  background: rgba(251, 146, 60, 0.15);
+}
+
+[data-theme='light'] .featured-terminal {
+  border-color: rgba(234, 88, 12, 0.25);
+  background: var(--terminal-bg);
+}
+
+[data-theme='light'] .featured-terminal-cmd {
+  background: rgba(234, 88, 12, 0.15);
+  border-color: rgba(251, 146, 60, 0.35);
+}
+
+[data-theme='light'] .featured-terminal-cmd code {
+  color: #fdba74;
+}
+
+[data-theme='light'] .project-card {
+  background:
+    radial-gradient(circle at 90% 0%, color-mix(in srgb, var(--project-accent) 10%, transparent), transparent 50%),
+    linear-gradient(155deg, #fffbf5, #fff7ed);
+  border-color: rgba(234, 88, 12, 0.2);
+  box-shadow: 0 16px 40px -24px rgba(120, 53, 15, 0.12);
+}
+
+[data-theme='light'] .project-card:hover {
+  box-shadow:
+    0 22px 48px -22px rgba(120, 53, 15, 0.16),
+    0 0 32px -8px rgba(234, 88, 12, 0.2);
+}
+
+[data-theme='light'] .project-card-action {
+  color: #0c0a09;
+  background: rgba(255, 251, 245, 0.92);
+  border-color: rgba(234, 88, 12, 0.3);
+}
+
+[data-theme='light'] .project-card-action--primary {
+  background: rgba(251, 146, 60, 0.55);
+  border-color: rgba(234, 88, 12, 0.4);
+}
+
+[data-theme='light'] .project-card-pill {
+  background: var(--chip-bg);
+  border-color: var(--chip-border);
+  color: var(--chip-text);
+}
+
+[data-theme='light'] .loading-screen-root {
+  background: #ffedd5 !important;
+  background-image: radial-gradient(
+    ellipse 80% 60% at 50% -20%,
+    rgba(251, 146, 60, 0.35),
+    transparent
+  ) !important;
+}
+
+[data-theme='light'] .skills-category-card {
+  background: linear-gradient(145deg, #fffbf5, #fff7ed);
+  border-color: rgba(234, 88, 12, 0.2);
+  box-shadow: 0 14px 36px -22px rgba(120, 53, 15, 0.12);
+}
+
+[data-theme='light'] ::-webkit-scrollbar-track {
+  background: #ffedd5;
+}
+
+[data-theme='light'] ::-webkit-scrollbar-thumb {
+  background: rgba(234, 88, 12, 0.35);
+}
+
+[data-theme='light'] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(234, 88, 12, 0.55);
+}

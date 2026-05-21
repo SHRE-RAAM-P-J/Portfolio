@@ -18,8 +18,7 @@ export default function CTA() {
         padding: 'clamp(2rem, 5vw, 3rem)',
         borderRadius: 'var(--radius)',
         border: '1px solid var(--border)',
-        background:
-          'linear-gradient(135deg, rgba(129, 140, 248, 0.12), rgba(192, 132, 252, 0.08)), var(--glass)',
+        background: 'var(--cta-bg), var(--glass)',
         backdropFilter: 'blur(20px)',
         textAlign: 'center',
         position: 'relative',

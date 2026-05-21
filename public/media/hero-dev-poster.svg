@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Developer workspace cinematic fallback">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080b13"/>
+      <stop offset="60%" stop-color="#0f1626"/>
+      <stop offset="100%" stop-color="#0a101d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="24%" r="55%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.3"/>
+      <stop offset="55%" stop-color="#4f46e5" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#4f46e5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <g opacity="0.5">
+    <rect x="180" y="210" width="1240" height="580" rx="24" fill="#0b1220" stroke="#2f3a57" stroke-opacity="0.45"/>
+    <rect x="220" y="260" width="460" height="22" rx="11" fill="#324164"/>
+    <rect x="220" y="312" width="680" height="16" rx="8" fill="#456090"/>
+    <rect x="220" y="344" width="620" height="16" rx="8" fill="#3d5681"/>
+    <rect x="220" y="376" width="540" height="16" rx="8" fill="#3a4f75"/>
+    <rect x="220" y="452" width="940" height="12" rx="6" fill="#2c3a58"/>
+    <rect x="220" y="486" width="980" height="12" rx="6" fill="#2c3a58"/>
+    <rect x="220" y="520" width="860" height="12" rx="6" fill="#2c3a58"/>
+    <rect x="220" y="554" width="1020" height="12" rx="6" fill="#2c3a58"/>
+    <rect x="220" y="588" width="900" height="12" rx="6" fill="#2c3a58"/>
+  </g>
+</svg>

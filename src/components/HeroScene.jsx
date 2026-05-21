@@ -27,8 +27,8 @@ function AccentOrbit({ isLight }) {
       <mesh position={[2.2, 0.6, 0]}>
         <octahedronGeometry args={[0.35, 0]} />
         <meshStandardMaterial
-          color={isLight ? '#7c3aed' : '#c084fc'}
-          emissive={isLight ? '#ddd6fe' : '#6b21a8'}
+          color={isLight ? '#ea580c' : '#c084fc'}
+          emissive={isLight ? '#fed7aa' : '#6b21a8'}
           emissiveIntensity={isLight ? 0.25 : 0.4}
           metalness={0.6}
           roughness={isLight ? 0.35 : 0.25}
@@ -37,8 +37,8 @@ function AccentOrbit({ isLight }) {
       <mesh position={[-2, -0.4, 0.5]}>
         <tetrahedronGeometry args={[0.4, 0]} />
         <meshStandardMaterial
-          color={isLight ? '#0284c7' : '#38bdf8'}
-          emissive={isLight ? '#bae6fd' : '#0c4a6e'}
+          color={isLight ? '#d97706' : '#38bdf8'}
+          emissive={isLight ? '#fde68a' : '#0c4a6e'}
           emissiveIntensity={isLight ? 0.22 : 0.35}
           metalness={0.5}
           roughness={0.3}
@@ -53,8 +53,8 @@ function CoreBlob({ isLight }) {
     <Float speed={2.2} rotationIntensity={0.6} floatIntensity={0.8}>
       <Sphere args={[1.15, 48, 48]}>
         <MeshDistortMaterial
-          color={isLight ? '#4f46e5' : '#6366f1'}
-          emissive={isLight ? '#c7d2fe' : '#312e81'}
+          color={isLight ? '#ea580c' : '#6366f1'}
+          emissive={isLight ? '#ffedd5' : '#312e81'}
           emissiveIntensity={isLight ? 0.32 : 0.55}
           metalness={isLight ? 0.75 : 0.85}
           roughness={isLight ? 0.22 : 0.18}
@@ -71,8 +71,8 @@ function WireTorus({ isLight }) {
     <Float speed={1.4} rotationIntensity={1.2} floatIntensity={0.4}>
       <Torus args={[1.65, 0.04, 12, 80]} rotation={[Math.PI / 3, 0, 0]}>
         <meshStandardMaterial
-          color={isLight ? '#818cf8' : '#a5b4fc'}
-          emissive={isLight ? '#e0e7ff' : '#4338ca'}
+          color={isLight ? '#f59e0b' : '#a5b4fc'}
+          emissive={isLight ? '#fff7ed' : '#4338ca'}
           emissiveIntensity={isLight ? 0.15 : 0.25}
           metalness={0.9}
           roughness={0.15}
@@ -87,9 +87,9 @@ function Scene({ isLight }) {
     () =>
       isLight
         ? {
-            amb: new THREE.Color('#cbd5e1'),
-            key: new THREE.Color('#6366f1'),
-            fill: new THREE.Color('#38bdf8'),
+            amb: new THREE.Color('#ffedd5'),
+            key: new THREE.Color('#ea580c'),
+            fill: new THREE.Color('#f59e0b'),
           }
         : {
             amb: new THREE.Color('#404060'),

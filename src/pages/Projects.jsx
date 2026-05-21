@@ -1,29 +1,34 @@
-import { LayoutGroup } from 'framer-motion';
 import CTA from '../components/CTA';
-import ProjectCard from '../components/ProjectCard';
+import FeaturedAlphaMap from '../components/projects/FeaturedAlphaMap';
+import ProjectCard from '../components/projects/ProjectCard';
 import SectionHeading from '../components/ui/SectionHeading';
-import { projects } from '../data/projects';
+import { featuredProject, showcaseProjects } from '../data/projects';
 
 export default function Projects() {
   return (
-    <div style={{ padding: '3rem 0 4rem' }}>
+    <div className="projects-page">
       <SectionHeading
         title="Projects"
-        subtitle="Compression and security, local AI, edge vision, and desktop tooling — projects built to solve real problems."
+        subtitle="Engineering products and systems — from installable compression tooling to edge AI, analytics pipelines, and shipped web platforms."
       />
-      <LayoutGroup>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
-            gap: '1.5rem',
-          }}
-        >
-          {projects.map((p) => (
-            <ProjectCard key={p.id} project={p} />
+
+      <FeaturedAlphaMap project={featuredProject} />
+
+      <section className="projects-showcase" aria-labelledby="projects-showcase-heading">
+        <h2 id="projects-showcase-heading" className="projects-showcase-heading">
+          Engineering Showcase
+        </h2>
+        <p className="projects-showcase-sub">
+          Real-world builds across AI deployment, data engineering, web delivery, and desktop automation.
+        </p>
+
+        <div className="projects-grid">
+          {showcaseProjects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
-      </LayoutGroup>
+      </section>
+
       <CTA />
     </div>
   );

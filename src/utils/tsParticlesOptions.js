@@ -4,8 +4,8 @@
  * @param {boolean} isLight
  */
 export function getTsParticlesOptions(isMobile, isLight) {
-  const count = isMobile ? 28 : 48;
-  const colors = isLight ? ['#4338ca', '#6d28d9', '#0369a1'] : ['#818cf8', '#c084fc', '#38bdf8'];
+  const count = isMobile ? 32 : 55;
+  const colors = isLight ? ['#ea580c', '#f59e0b', '#fb923c'] : ['#818cf8', '#c084fc', '#38bdf8'];
   return {
     fullScreen: { enable: false },
     background: { color: { value: 'transparent' } },
@@ -14,20 +14,20 @@ export function getTsParticlesOptions(isMobile, isLight) {
     particles: {
       number: { value: count, density: { enable: true, area: 900 } },
       color: { value: colors },
-      opacity: { value: { min: isLight ? 0.18 : 0.15, max: isLight ? 0.42 : 0.45 } },
-      size: { value: { min: 1, max: 2.8 } },
+      opacity: { value: { min: isLight ? 0.12 : 0.10, max: isLight ? 0.38 : 0.40 } },
+      size: { value: { min: 0.8, max: 2.6 } },
       links: {
         enable: true,
-        distance: isMobile ? 110 : 130,
-        color: isLight ? '#6366f1' : '#818cf8',
-        opacity: isLight ? 0.16 : 0.12,
+        distance: isMobile ? 100 : 125,
+        color: isLight ? '#ea580c' : '#818cf8',
+        opacity: isLight ? 0.14 : 0.10,
         width: 1,
       },
       move: {
         enable: true,
-        speed: isMobile ? 0.45 : 0.75,
+        speed: isMobile ? 0.22 : 0.40,
         direction: 'none',
-        random: true,
+        random: false,
         straight: false,
         outModes: { default: 'out' },
       },
@@ -35,12 +35,20 @@ export function getTsParticlesOptions(isMobile, isLight) {
     interactivity: {
       detectsOn: 'window',
       events: {
-        onHover: { enable: true, mode: 'grab' },
+        onHover: {
+          enable: true,
+          mode: 'grab',
+          parallax: {
+            enable: true,
+            force: 50,
+            smooth: 12
+          }
+        },
         onClick: { enable: true, mode: 'push' },
         resize: { enable: true },
       },
       modes: {
-        grab: { distance: 150, links: { opacity: isLight ? 0.28 : 0.32 } },
+        grab: { distance: 140, links: { opacity: isLight ? 0.22 : 0.26 } },
         push: { quantity: 2 },
       },
     },
