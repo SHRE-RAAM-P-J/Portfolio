@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { playClick } from '../hooks/useSubtleSound';
-import { trackExternalLink } from '../utils/analytics';
 
 function LinkedInIcon() {
   return (
@@ -51,7 +50,6 @@ export default function SocialLinks({ vertical = false }) {
           whileHover={{ scale: 1.12, y: -2 }}
           whileTap={{ scale: 0.96 }}
           onPointerDown={() => playClick()}
-          onClick={() => trackExternalLink(href, name)}
           data-magnetic
           style={{
             display: 'grid',

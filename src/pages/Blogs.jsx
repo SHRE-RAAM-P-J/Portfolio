@@ -6,7 +6,6 @@ import CategoryPills from '../components/blogs/CategoryPills';
 import FeaturedBlogCard from '../components/blogs/FeaturedBlogCard';
 import SectionHeading from '../components/ui/SectionHeading';
 import { BLOG_CATEGORIES, blogs, featuredBlog } from '../data/articles';
-import { trackBlogOpen } from '../utils/analytics';
 
 function matchesCategory(blog, category) {
   if (category === 'All') return true;
@@ -18,7 +17,6 @@ export default function Blogs() {
   const [openBlog, setOpenBlog] = useState(null);
 
   function handleOpenBlog(blog) {
-    trackBlogOpen(blog.id, blog.title);
     setOpenBlog(blog);
   }
 

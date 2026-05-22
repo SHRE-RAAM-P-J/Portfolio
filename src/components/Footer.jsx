@@ -1,5 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSoundToggle } from '../hooks/useSubtleSound';
 import SocialLinks from './SocialLinks';
 import VisitorCounter from './VisitorCounter';
@@ -15,13 +14,6 @@ export default function Footer() {
   const [soundsOn, toggleSounds] = useSoundToggle();
   const [msgIndex, setMsgIndex] = useState(0);
 
-  useEffect(() => {
-    const id = window.setInterval(() => {
-      setMsgIndex((i) => (i + 1) % ROTATING_MESSAGES.length);
-    }, 4200);
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <footer className="site-footer">
       <div className="site-footer-inner">
@@ -30,18 +22,9 @@ export default function Footer() {
             <span className="site-footer-status-dot" aria-hidden />
             <span className="site-footer-status-label">Currently building</span>
           </div>
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={msgIndex}
-              className="site-footer-rotating"
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.35 }}
-            >
-              {ROTATING_MESSAGES[msgIndex]}
-            </motion.p>
-          </AnimatePresence>
+          <p className="site-footer-rotating">
+            {ROTATING_MESSAGES[msgIndex]}
+          </p>
         </div>
 
         <div>
@@ -55,15 +38,13 @@ export default function Footer() {
 
         <SocialLinks />
 
-        <motion.button
+        <button
           type="button"
           className="site-footer-sound-btn"
           onClick={toggleSounds}
-          whileTap={{ scale: 0.97 }}
-          data-magnetic
         >
           Subtle sounds: {soundsOn ? 'On' : 'Off'}
-        </motion.button>
+        </button>
       </div>
 
       <p className="site-footer-copy">

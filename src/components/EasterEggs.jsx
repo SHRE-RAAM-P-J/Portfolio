@@ -1,7 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useCallback, useEffect, useState } from 'react';
 import { playPop } from '../hooks/useSubtleSound';
-import { trackEvent } from '../utils/analytics';
 
 const MESSAGES = [
   'You found the builder terminal.',
@@ -19,7 +18,6 @@ export default function EasterEggs() {
   const toggle = useCallback(() => {
     setOpen((v) => {
       if (!v) {
-        trackEvent('easter_egg', { type: 'terminal_open' });
         playPop();
       }
       return !v;
@@ -47,7 +45,6 @@ export default function EasterEggs() {
       setOutput('SHRE RAAM P J — CSE student building real software products.');
     } else if (c === 'build') {
       setOutput('Status: Building meaningful software. Momentum > perfection.');
-      trackEvent('easter_egg', { type: 'build_command' });
     } else if (c === 'clear') {
       setOutput('');
     } else if (c === 'exit') {

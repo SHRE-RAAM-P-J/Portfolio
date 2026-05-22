@@ -4,7 +4,6 @@ import { Link, NavLink } from 'react-router-dom';
 import { springSnappy } from '../animations/transitions';
 import { useTheme } from '../context/ThemeContext';
 import { playClick } from '../hooks/useSubtleSound';
-import { trackResumeDownload } from '../utils/analytics';
 import { NAV_LINKS } from '../utils/nav';
 
 export default function Navbar() {
@@ -130,7 +129,6 @@ export default function Navbar() {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.96 }}
             onPointerDown={() => playClick()}
-            onClick={() => trackResumeDownload()}
             className="nav-resume-btn btn-primary"
             style={{ display: 'none', textDecoration: 'none', fontSize: '0.9rem' }}
           >
@@ -242,7 +240,6 @@ export default function Navbar() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onPointerDown={() => playClick()}
-                onClick={() => trackResumeDownload()}
                 className="btn-primary"
                 style={{ marginTop: 8, textAlign: 'center', textDecoration: 'none' }}
               >

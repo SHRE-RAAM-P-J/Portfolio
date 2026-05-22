@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { playClick } from '../hooks/useSubtleSound';
-import { trackCtaClick } from '../utils/analytics';
 
 const MotionLink = motion(Link);
 
@@ -63,7 +62,6 @@ export default function CTA() {
           to="/contact"
           onClick={() => {
             playClick();
-            trackCtaClick('/contact');
           }}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
@@ -76,7 +74,6 @@ export default function CTA() {
           to="/projects"
           onClick={() => {
             playClick();
-            trackCtaClick('/projects');
           }}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}

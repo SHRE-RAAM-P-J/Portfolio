@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 function BlogBody({ blocks }) {
   return (
@@ -73,7 +74,7 @@ export default function BlogReaderModal({ blog, onClose }) {
     scrollRef.current?.scrollTo(0, 0);
   }, [blog?.id]);
 
-  return (
+  const modalContent = (
     <AnimatePresence>
       {blog ? (
         <motion.div
@@ -98,10 +99,15 @@ export default function BlogReaderModal({ blog, onClose }) {
 
           <motion.div
             className="blog-modal-panel"
-            initial={reduce ? false : { opacity: 0, y: 28, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={reduce ? undefined : { opacity: 0, y: 16, scale: 0.98 }}
+            initial={reduce ? false : { opacity: 0, x: '-50%', y: '-35%', scale: 0.98 }}
+            animate={{ opacity: 1, x: '-50%', y: '-50%', scale: 1 }}
+            exit={reduce ? undefined : { opacity: 0, x: '-50%', y: '-35%', scale: 0.98 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+            }}
           >
             <div className="blog-modal-progress-track" aria-hidden="true">
               <div className="blog-modal-progress-bar" style={{ transform: `scaleX(${progress})` }} />
@@ -142,4 +148,7 @@ export default function BlogReaderModal({ blog, onClose }) {
       ) : null}
     </AnimatePresence>
   );
+
+  if (typeof document === 'undefined') return null;
+  return createPortal(modalContent, document.body);
 }

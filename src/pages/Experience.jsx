@@ -1,7 +1,6 @@
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
 import CTA from '../components/CTA';
-import { trackExternalLink } from '../utils/analytics';
 import SectionHeading from '../components/ui/SectionHeading';
 
 const internships = [
@@ -142,7 +141,6 @@ function TimelineStep({ internship, index, reduce }) {
               whileHover={reduce ? undefined : { y: -2 }}
               whileTap={reduce ? undefined : { scale: 0.98 }}
               className="experience-link-btn"
-              onClick={() => trackExternalLink(link.href, link.label)}
             >
               {link.label}
             </motion.a>

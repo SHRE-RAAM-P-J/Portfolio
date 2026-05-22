@@ -6,7 +6,6 @@ import { useParallax } from '../hooks/useParallax';
 import { playClick } from '../hooks/useSubtleSound';
 import HeroVideo from '../components/HeroVideo';
 import RotatingTitles from '../components/RotatingTitles';
-import { trackResumeDownload } from '../utils/analytics';
 
 const MotionLink = motion(Link);
 
@@ -151,7 +150,6 @@ export default function Home() {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                   onPointerDown={() => playClick()}
-                  onClick={() => trackResumeDownload()}
                   className="btn-dashed"
                   data-magnetic
                 >

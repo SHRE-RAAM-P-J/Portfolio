@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { memo, useRef } from 'react';
 import { playClick } from '../../hooks/useSubtleSound';
-import { trackProjectClick } from '../../utils/analytics';
 
 function ProjectCardComponent({ project, index = 0 }) {
   const reduce = useReducedMotion();
@@ -61,7 +60,6 @@ function ProjectCardComponent({ project, index = 0 }) {
                 whileHover={reduce ? undefined : { y: -2 }}
                 whileTap={reduce ? undefined : { scale: 0.97 }}
                     onPointerDown={() => playClick()}
-                    onClick={() => trackProjectClick(project.id, 'github')}
                   >
                     GitHub
                   </motion.a>
@@ -75,7 +73,6 @@ function ProjectCardComponent({ project, index = 0 }) {
                     whileHover={reduce ? undefined : { y: -2 }}
                     whileTap={reduce ? undefined : { scale: 0.97 }}
                     onPointerDown={() => playClick()}
-                    onClick={() => trackProjectClick(project.id, 'live')}
                   >
                     Live demo
                   </motion.a>
@@ -113,7 +110,6 @@ function ProjectCardComponent({ project, index = 0 }) {
               rel="noopener noreferrer"
               onClick={() => {
                 playClick();
-                trackProjectClick(project.id, 'github');
               }}
             >
               GitHub
@@ -126,7 +122,6 @@ function ProjectCardComponent({ project, index = 0 }) {
               rel="noopener noreferrer"
               onClick={() => {
                 playClick();
-                trackProjectClick(project.id, 'live');
               }}
             >
               Live demo

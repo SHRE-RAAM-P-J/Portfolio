@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
 import { playClick } from '../../hooks/useSubtleSound';
-import { trackProjectClick } from '../../utils/analytics';
 
 export default function FeaturedAlphaMap({ project }) {
   const reduce = useReducedMotion();
@@ -60,7 +59,6 @@ export default function FeaturedAlphaMap({ project }) {
               whileHover={reduce ? undefined : { scale: 1.03, y: -2 }}
               whileTap={reduce ? undefined : { scale: 0.98 }}
               onPointerDown={() => playClick()}
-              onClick={() => trackProjectClick(project.id, 'github')}
             >
               View on GitHub
             </motion.a>
